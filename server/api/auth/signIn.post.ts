@@ -5,8 +5,9 @@ import {serverSupabaseClient} from "#supabase/server";
 export default defineEventHandler(async (event: H3Event) => {
     const {account, password} = await readBody(event);
     const supabase = await serverSupabaseClient(event);
-    const {data, error} = await supabase.auth.signInWithOtp({
-        email: account
+    const {data, error} = await supabase.auth.signInWithPassword({
+        email: account,
+        password: password
     })
     if (error) {
         console.log("错误: ", error);

@@ -1,5 +1,4 @@
 <template>
-
   <section>
     <nav class="font-inter mx-auto h-auto w-full max-w-screen-2xl lg:relative lg:top-0">
       <div class="flex flex-col px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-10 lg:py-4 xl:px-20">
@@ -24,8 +23,8 @@
           <NuxtLink to="/price" class="font-inter lg: rounded-lg pb-8 lg:px-6 lg:py-4 lg: lg:hover:text-gray-800"> 价格 </NuxtLink>
         </div>
         <div class="flex flex-col space-y-8 lg:flex lg:flex-row lg:space-x-3 lg:space-y-0">
-          <a href="#" class="font-inter rounded-lg lg:px-6 lg:py-4 lg: lg:hover:text-gray-800"> 注册 </a>
-          <a class="font-inter rounded-lg bg-black px-8 py-4 text-center text-white hover:bg-gray-800" href="#"> 登录 </a>
+          <NuxtLink to="/register" class="font-inter rounded-lg lg:px-6 lg:py-4 lg: lg:hover:text-gray-800"> 注册 </NuxtLink>
+          <NuxtLink to="/login" class="font-inter rounded-lg bg-black px-8 py-4 text-center text-white hover:bg-gray-800" href="#"> 登录 </NuxtLink>
         </div>
       </div>
     </nav>

@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build-local": "nuxt build --dotenv .env.local",
     "build": "nuxt build",
     "dev": "nuxt dev --dotenv .env.local --open",
     "generate": "nuxt generate",

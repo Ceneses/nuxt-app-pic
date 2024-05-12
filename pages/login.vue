@@ -21,12 +21,33 @@
       <!-- Component -->
       <div class="flex flex-col items-center justify-center bg-white">
         <!-- Wrapper -->
-        <div class="max-w-lg px-5 py-16 text-center md:px-10 md:py-24 lg:py-32">
+        <div class="max-w-lg px-2 py-4 text-center md:px-2 md:py-4 lg:py-4">
           <!-- Title -->
           <h2 class="mb-8 text-3xl font-bold md:mb-12 md:text-5xl">登录</h2>
           <Auth
               :supabaseClient="supabaseClient"
-              :appearance="{theme: ThemeSupa}"/>
+              socialLayout="horizontal"
+              :appearance="{
+                  theme: ThemeSupa,
+                  style: {
+                    button: {
+                      borderRadius: '8px',
+                      borderColor: 'rgba(0,0,0,0.1)'
+                    },
+                    input: {
+                      borderRadius: '8px'
+                    }
+                  },
+                  variables: {
+                    default: {
+                      colors: {
+                        brand: 'rgb(14, 165, 233)',
+                        brandAccent: `gray`
+                      }
+                    }
+                  }
+                }"
+          />
         </div>
       </div>
     </div>

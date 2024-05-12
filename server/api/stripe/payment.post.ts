@@ -3,6 +3,8 @@ import {defineEventHandler} from "h3";
 // @ts-ignore
 import {useServerStripe} from "#stripe/server";
 
+const APP_DOMAIN = process.env.APP_DOMAIN;
+
 export default defineEventHandler(async (event: any) => {
     const stripe = await useServerStripe(event);
     const {id, url} = await stripe.checkout.sessions.create({
@@ -13,8 +15,8 @@ export default defineEventHandler(async (event: any) => {
             }
         ],
         mode: 'payment',
-        success_url: 'http://localhost:3000/success',
-        cancel_url: 'http://localhost:3000/cancel'
+        success_url: APP_DOMAIN + '/success',
+        cancel_url: APP_DOMAIN + '/cancel'
     });
     return url;
 });

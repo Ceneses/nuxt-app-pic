@@ -36,7 +36,7 @@
               <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/63904f663019b065a0f8d592_check-mark.svg" alt="" class="mr-2 inline-block w-5" />
               <p>Customer Support</p>
             </div>
-            <a href="#" class="mx-auto inline-block rounded-xl bg-black px-7 py-4 text-center font-semibold text-white [box-shadow:rgb(19,_83,_254)_6px_6px]">Get started</a>
+            <a href="#" class="mx-auto inline-block rounded-xl bg-black px-7 py-4 text-center font-semibold text-white [box-shadow:rgb(19,_83,_254)_6px_6px]" @click="handlePayment">Get started</a>
           </div>
           <div class="flex w-full max-w-[416px] flex-col items-start rounded-2xl border border-solid border-[#9b9b9b] bg-[#376dfd] px-8 pb-12 pt-8 text-white [box-shadow:rgb(0,_0,_0)_6px_6px]">
             <div class="mb-4 rounded-lg bg-black px-5 py-2">
@@ -99,6 +99,17 @@
 definePageMeta({
   layout: 'default'
 })
+
+const handlePayment = async () => {
+  const {data, error} = await useFetch('/api/stripe/payment', {
+    method: 'POST',
+    immediate: true
+  });
+  console.log("返回数据",data)
+  const pay_url = data._value;
+  console.log("支付URL = ", pay_url);
+  window.location.href = data._value;
+};
 </script>
 
 <style scoped>

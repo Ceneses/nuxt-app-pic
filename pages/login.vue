@@ -48,6 +48,8 @@
                   }
                 }"
           />
+          <button @click.prevent="handleCurrentUser">打印相关信息</button>
+          <button @click.prevent="handleLogout">退出</button>
         </div>
       </div>
     </div>
@@ -73,6 +75,17 @@ const handleSignIn = async () => {
       'Content-Type': 'application/json'
     }
   })
+}
+
+const handleCurrentUser = () => {
+  const user = useSupabaseUser();
+  console.log("用户信息-邮箱 = ",user.value.email);
+  console.log("用户信息-url = ",user.value.user_metadata.avatar_url);
+}
+
+const handleLogout = async () => {
+  const res = await supabaseClient.auth.signOut();
+  console.log("用户退出成功!");
 }
 
 const handleSignUp = async () => {

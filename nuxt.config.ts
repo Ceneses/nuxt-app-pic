@@ -34,7 +34,7 @@ export default defineNuxtConfig({
             login: '/login',
             success: "/success",
             callback: '/callback',
-            exclude: ['/*', '/price', '/product']
+            exclude: ['/price']
         }
     }
 })
